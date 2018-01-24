@@ -26,28 +26,30 @@ textEncoder = new TextEncoder();
 var tableContent = {
   title: ['IDX', 'LOC', 'NAME', 'TIME', 'DRTN'],
   content: [{
-    text: ['001', 'BKLYN', 'CHANNEL', '09.01.2017.13:00', '18:00'],
+    text: ['001', 'BKLYN', 'CHANNEL', '08.31.2017.13:50', '52:30'],
     sound: 'assets/Channel_Design_06_01.mp3'
   }, {
-    text: ['002', 'QNS', 'INSTAGRAM', '09.05.2017.15:59', '17:44'],
+    text: ['002', 'MTN', 'INSTAGRAM', '09.11.2017.17:44', '48:10'],
     sound: 'assets/Instagram_770_broadway_09_05_2017.mp3'
   }, {
-    text: ['003', 'MTN', 'TOPOS', '09.11.2017.12:35', '18:00'],
+    text: ['003', 'BKLYN', 'TOPOS', '09.15.2017.18:01', '32:50'],
     sound: 'assets/Topos_195_plymouth_Street_Brooklyn_Dumbo_09_11_2017_01.mp3'
   }, {
-    text: ['004', 'BKLYN', 'CHANNEL', '09.01.2017.13:00', '17:44']
+    text: ['004', 'BKLYN', 'MY OFFICE', '01.17.2018.15:59', '35:38'],
+    sound: 'assets/My_Office_200_Morgan_Ave_Brooklyn_NY_01.mp3'
   }, {
-    text: ['005', 'BKLYN', 'INSTAGRAM', '09.05.2017.15:59', '18:00']
+    text: ['005', 'MTN', 'GOOGLE', '01.20.2018.12:35', '38:00'],
+    sound: 'assets/Google_111_8th_Ave _New_York_NY_10011_01.mp3'
   }, {
-    text: ['006', 'QNS', 'TOPOS', '09.11.2017.12:35', '17:44']
+    text: ['006', 'BKLYN', 'CHANNEL', '09.11.2017.12:35', '17:44']
   }, {
-    text: ['007', 'BKLYN', 'CHANNEL', '09.01.2017.13:00', '18:00']
+    text: ['007', 'QNS', 'INSTAGRAM', '09.01.2017.13:00', '18:00']
   }, {
-    text: ['008', 'MTN', 'INSTAGRAM', '09.05.2017.15:59', '17:44']
+    text: ['008', 'BKLYN', 'GOOGLE', '09.05.2017.15:59', '17:44']
   }, {
     text: ['009', 'MTN', 'TOPOS', '09.11.2017.12:35', '18:00']
   }, {
-    text: ['010', 'MTN', 'INSTAGRAM', '09.11.2017.12:35', '17:44']
+    text: ['010', 'BKLYN', 'MY OFFICE', '09.11.2017.12:35', '17:44']
   }, ]
 };
 
