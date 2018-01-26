@@ -224,9 +224,9 @@ function draw() {
       var pulseDuration = 200;
 
 
-      if (sendValue <= 0) { //motor map
-        motorHigh = 100;
-        motorLow = 100;
+      if (sendValue <= 0) { //motor map, motor works in a pulse,vibration will switch between motorLow and motorHigh, sendValue will be ranging from -1,1
+        motorHigh = 0;
+        motorLow = 0;
       } else if (sendValue < 0.5) {
         motorHigh = 200;
         motorLow = 100;
