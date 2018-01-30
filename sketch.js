@@ -240,7 +240,7 @@ function draw() {
         LEDbrightness = Math.floor(64 + 10 * LEDvariation);
       } else {
         var squareSendValue = sendValue * sendValue * sendValue;
-        LEDbrightness = map(squareSendValue, 0, 1, 64, 255) + map(squareSendValue, 0, 1, 10, 0) * LEDvariation;
+        LEDbrightness = map(squareSendValue, 0, 1, 64, 175) + map(squareSendValue, 0, 1, 10, 0) * LEDvariation;
         LEDbrightness = Math.floor(LEDbrightness);
         if (LEDbrightness > 255) LEDbrightness = 255;
       }
