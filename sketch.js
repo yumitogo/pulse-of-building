@@ -23,6 +23,10 @@ var webUSBPort = null;
 
 textEncoder = new TextEncoder();
 
+var motorHeartbeatBeginned = false;
+var motorCurrentStatus = false;
+var motorStatusChangeTime = 0;
+
 var tableContent = {
   title: ['IDX', 'LOC', 'NAME', 'TIME', 'DRTN'],
   content: [{
@@ -215,25 +219,9 @@ function draw() {
     if (useWebUSB && webUSBPort) {
       var sendValue = -fftSelected[totalLenfth - 1]; //Y axis down
       var LEDbrightness;
-      var motorValue, motorHigh, motorLow;
+      var motorValue, motorStrength;
+      var duration = 100; //let every command run for 100ms or be overwritten
 
-      //var LEDbrightness = Math.round(map(sendValue, -1, 1, 0, 255, true));
-      //var motorValue = Math.round(map(sendValue, -1, 1, 95, 255, true));
-      var duration = 100;
-      //do a pulse;
-      var pulseDuration = 200;
-
-
-      if (sendValue <= 0) { //motor map, motor works in a pulse,vibration will switch between motorLow and motorHigh, sendValue will be ranging from -1,1
-        motorHigh = 0;
-        motorLow = 0;
-      } else if (sendValue < 0.5) {
-        motorHigh = 200;
-        motorLow = 100;
-      } else {
-        motorHigh = 255;
-        motorLow = 100;
-      }
 
       var LEDvariation = sin(millis() / 500);
       if (sendValue <= 0) { //LEDmap
@@ -245,17 +233,38 @@ function draw() {
         if (LEDbrightness > 255) LEDbrightness = 255;
       }
 
-      var pulsePhase = Math.floor(millis() % pulseDuration);
-      if (pulsePhase < 150) {
-        motorValue = motorLow;
+      motorStrength = 200;
+      var beatDuration = 250; //the number defines beat duration (motor on time)
+
+      if (sendValue <= 0) { //if signal is below 0, shut down motor
+        motorHeartbeatBeginned = false;
+        if (motorCurrentStatus && (millis() < motorStatusChangeTime)) {
+          //do nothing, let this beat finish
+        } else {
+          motorCurrentStatus = false;
+          motorStatusChangeTime = 0;
+        }
       } else {
-        motorValue = motorHigh;
+        if (!motorHeartbeatBeginned) { //just begins
+          motorStatusChangeTime = millis() + 750; //rest before 1st beat.
+          motorHeartbeatBeginned = true;
+        }
+        if (millis() >= motorStatusChangeTime) {
+          if (!motorCurrentStatus) {
+            motorCurrentStatus = true;
+            motorStatusChangeTime = millis() + beatDuration;
+          } else {
+            motorCurrentStatus = false;
+            motorStatusChangeTime = millis() + Math.floor(random(600, 800)); //rest between each beat
+          }
+        }
       }
 
-      //console.log(LEDbrightness);
-
-      //LEDbrightness = 255;
-      //motorValue = 0;
+      if (motorCurrentStatus) { //give motor a value according to on and off status
+        motorValue = motorStrength;
+      } else {
+        motorValue = 0;
+      }
 
       var ledStr = ("00" + (LEDbrightness).toString(16)).slice(-2);
       var motorStr = ("00" + (motorValue).toString(16)).slice(-2);
