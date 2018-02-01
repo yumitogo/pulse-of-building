@@ -233,8 +233,8 @@ function draw() {
         if (LEDbrightness > 255) LEDbrightness = 255;
       }
 
-      motorStrength = 200;
-      var beatDuration = 250; //the number defines beat duration (motor on time)
+      motorStrength = 150;
+      var beatDuration = 80; //the number defines beat duration (motor on time)
 
       if (sendValue <= 0) { //if signal is below 0, shut down motor
         motorHeartbeatBeginned = false;
