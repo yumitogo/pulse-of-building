@@ -1,0 +1,244 @@
+<html>
+
+<head>
+    <script src="serial.js" type="text/javascript"></script>
+    <title>Test USB</title>
+</head>
+
+<body>
+    <div id="messageDiv"></div>
+    <button id="connect">Connect</button>
+    <br>
+    <br>
+
+    <fieldset>
+        <legend>Original control</legend>
+
+        <label>Brightness</label>
+        <input type="range" id="led_motor_bri" name="rangeInput" min="0" max="255" value="255" step="1" oninput="led_motor_bri_amount.value=led_motor_bri.value">
+        <output id="led_motor_bri_amount" name="led_motor_bri_amount" for="led_motor_bri">255</output>
+        <br>
+        <label>Vibration</label>
+        <input type="range" id="led_motor_vib" name="rangeInput" min="0" max="255" value="255" step="1" oninput="led_motor_vib_amount.value=led_motor_vib.value">
+        <output id="led_motor_vib_amount" name="led_motor_vib_amount" for="led_motor_vib">255</output>
+        <br>
+        <label>duration</label>
+        <input type="range" id="led_motor_dur" name="rangeInput" min="100" max="5000" value="1000" step="1" oninput="led_motor_dur_amount.value=led_motor_dur.value">
+        <output id="led_motor_dur_amount" name="led_motor_dur_amount" for="led_motor_dur">1000</output>
+        <br>
+        <button id="ledMotorButton">Send LED and Motor control command</button>
+    </fieldset>
+    <fieldset>
+        <legend>Control Motor and LED separately</legend>
+        <fieldset>
+            <legend>Motor control Only</legend>
+
+            <label>Vibration</label>
+            <input type="range" id="motor_only_vib" name="rangeInput" min="0" max="255" value="255" step="1" oninput="motor_only_vib_amount.value=motor_only_vib.value">
+            <output id="motor_only_vib_amount" name="motor_only_vib_amount" for="motor_only_vib">255</output>
+            <br>
+            <label>duration</label>
+            <input type="range" id="motor_only_dur" name="rangeInput" min="100" max="5000" value="1000" step="1" oninput="motor_only_dur_amount.value=motor_only_dur.value">
+            <output id="motor_only_dur_amount" name="motor_only_dur_amount" for="motor_only_dur">1000</output>
+            <br>
+            <button id="motorButton">Send Motor control command</button>
+        </fieldset>
+        <fieldset>
+            <legend>LED control Only</legend>
+
+            <label>LED1 R G B W</label>
+            <BR>
+            <input type="range" id="led_1_r" name="led_1_r" min="0" max="255" value="0" step="1" oninput="led_1_r_amount.value=led_1_r.value">
+            <output id="led_1_r_amount" name="led_1_r_amount" for="led_1_r">0</output>
+            <br>
+            <input type="range" id="led_1_g" name="led_1_g" min="0" max="255" value="0" step="1" oninput="led_1_g_amount.value=led_1_g.value">
+            <output id="led_1_g_amount" name="led_1_g_amount" for="led_1_g">0</output>
+            <br>
+            <input type="range" id="led_1_b" name="led_1_b" min="0" max="255" value="0" step="1" oninput="led_1_b_amount.value=led_1_b.value">
+            <output id="led_1_b_amount" name="led_1_b_amount" for="led_1_b">0</output>
+            <br>
+            <input type="range" id="led_1_w" name="led_1_w" min="0" max="255" value="0" step="1" oninput="led_1_w_amount.value=led_1_w.value">
+            <output id="led_1_w_amount" name="led_1_w_amount" for="led_1_w">0</output>
+            <br>
+            <br>
+            <label>LED2 R G B W</label>
+            <BR>
+            <input type="range" id="led_2_r" name="led_2_r" min="0" max="255" value="0" step="1" oninput="led_2_r_amount.value=led_2_r.value">
+            <output id="led_2_r_amount" name="led_2_r_amount" for="led_2_r">0</output>
+            <br>
+            <input type="range" id="led_2_g" name="led_2_g" min="0" max="255" value="0" step="1" oninput="led_2_g_amount.value=led_2_g.value">
+            <output id="led_2_g_amount" name="led_2_g_amount" for="led_2_g">0</output>
+            <br>
+            <input type="range" id="led_2_b" name="led_2_b" min="0" max="255" value="0" step="1" oninput="led_2_b_amount.value=led_2_b.value">
+            <output id="led_2_b_amount" name="led_2_b_amount" for="led_2_b">0</output>
+            <br>
+            <input type="range" id="led_2_w" name="led_2_w" min="0" max="255" value="0" step="1" oninput="led_2_w_amount.value=led_2_w.value">
+            <output id="led_2_w_amount" name="led_2_w_amount" for="led_2_w">0</output>
+            <br>
+            <br>
+            <label>LED3 R G B W</label>
+            <BR>
+            <input type="range" id="led_3_r" name="led_3_r" min="0" max="255" value="0" step="1" oninput="led_3_r_amount.value=led_3_r.value">
+            <output id="led_3_r_amount" name="led_3_r_amount" for="led_3_r">0</output>
+            <br>
+            <input type="range" id="led_3_g" name="led_3_g" min="0" max="255" value="0" step="1" oninput="led_3_g_amount.value=led_3_g.value">
+            <output id="led_3_g_amount" name="led_3_g_amount" for="led_3_g">0</output>
+            <br>
+            <input type="range" id="led_3_b" name="led_3_b" min="0" max="255" value="0" step="1" oninput="led_3_b_amount.value=led_3_b.value">
+            <output id="led_3_b_amount" name="led_3_b_amount" for="led_3_b">0</output>
+            <br>
+            <input type="range" id="led_3_w" name="led_3_w" min="0" max="255" value="0" step="1" oninput="led_3_w_amount.value=led_3_w.value">
+            <output id="led_3_w_amount" name="led_3_w_amount" for="led_3_w">0</output>
+            <br>
+            <br>
+            <label>LED4 R G B W</label>
+            <BR>
+            <input type="range" id="led_4_r" name="led_4_r" min="0" max="255" value="0" step="1" oninput="led_4_r_amount.value=led_4_r.value">
+            <output id="led_4_r_amount" name="led_4_r_amount" for="led_4_r">0</output>
+            <br>
+            <input type="range" id="led_4_g" name="led_4_g" min="0" max="255" value="0" step="1" oninput="led_4_g_amount.value=led_4_g.value">
+            <output id="led_4_g_amount" name="led_4_g_amount" for="led_4_g">0</output>
+            <br>
+            <input type="range" id="led_4_b" name="led_4_b" min="0" max="255" value="0" step="1" oninput="led_4_b_amount.value=led_4_b.value">
+            <output id="led_4_b_amount" name="led_4_b_amount" for="led_4_b">0</output>
+            <br>
+            <input type="range" id="led_4_w" name="led_4_w" min="0" max="255" value="0" step="1" oninput="led_4_w_amount.value=led_4_w.value">
+            <output id="led_4_w_amount" name="led_4_w_amount" for="led_4_w">0</output>
+            <br>
+            <br>
+            <label>LED5 R G B W</label>
+            <BR>
+            <input type="range" id="led_5_r" name="led_5_r" min="0" max="255" value="0" step="1" oninput="led_5_r_amount.value=led_5_r.value">
+            <output id="led_5_r_amount" name="led_5_r_amount" for="led_5_r">0</output>
+            <br>
+            <input type="range" id="led_5_g" name="led_5_g" min="0" max="255" value="0" step="1" oninput="led_5_g_amount.value=led_5_g.value">
+            <output id="led_5_g_amount" name="led_5_g_amount" for="led_5_g">0</output>
+            <br>
+            <input type="range" id="led_5_b" name="led_5_b" min="0" max="255" value="0" step="1" oninput="led_5_b_amount.value=led_5_b.value">
+            <output id="led_5_b_amount" name="led_5_b_amount" for="led_5_b">0</output>
+            <br>
+            <input type="range" id="led_5_w" name="led_5_w" min="0" max="255" value="0" step="1" oninput="led_5_w_amount.value=led_5_w.value">
+            <output id="led_5_w_amount" name="led_5_w_amount" for="led_5_w">0</output>
+            <br>
+            <br>
+            <label>LED6 R G B W</label>
+            <BR>
+            <input type="range" id="led_6_r" name="led_6_r" min="0" max="255" value="0" step="1" oninput="led_6_r_amount.value=led_6_r.value">
+            <output id="led_6_r_amount" name="led_6_r_amount" for="led_6_r">0</output>
+            <br>
+            <input type="range" id="led_6_g" name="led_6_g" min="0" max="255" value="0" step="1" oninput="led_6_g_amount.value=led_6_g.value">
+            <output id="led_6_g_amount" name="led_6_g_amount" for="led_6_g">0</output>
+            <br>
+            <input type="range" id="led_6_b" name="led_6_b" min="0" max="255" value="0" step="1" oninput="led_6_b_amount.value=led_6_b.value">
+            <output id="led_6_b_amount" name="led_6_b_amount" for="led_6_b">0</output>
+            <br>
+            <input type="range" id="led_6_w" name="led_6_w" min="0" max="255" value="0" step="1" oninput="led_6_w_amount.value=led_6_w.value">
+            <output id="led_6_w_amount" name="led_6_w_amount" for="led_6_w">0</output>
+            <br>
+            <br>
+            <button id="ledButton">Send Led control command</button>
+        </fieldset>
+    </fieldset>
+
+    <script>
+        var port;
+
+        let textEncoder = new TextEncoder();
+
+        document.addEventListener('DOMContentLoaded', event => {
+            var connectButton = document.getElementById("connect");
+
+            function connect() {
+                document.getElementById("messageDiv").innerHTML = ('Connecting to ' + port.device_.productName + '...');
+                port.connect().then(() => {
+                    console.log(port);
+                    document.getElementById("messageDiv").innerHTML = ('Connected.');
+                    connectButton.textContent = 'Disconnect';
+                    port.onReceive = data => {
+                        let textDecoder = new TextDecoder();
+                        document.getElementById("messageDiv").innerHTML = (textDecoder.decode(data));
+                    }
+                    port.onReceiveError = error => {
+                        document.getElementById("messageDiv").innerHTML = ('Receive error: ' + error);
+                    };
+                }, error => {
+                    document.getElementById("messageDiv").innerHTML = ('Connection error: ' + error);
+                });
+            };
+
+            connectButton.addEventListener('click', function () {
+                if (port) {
+                    port.disconnect();
+                    connectButton.textContent = 'Connect';
+                } else {
+                    serial.requestPort().then(selectedPort => {
+                        port = selectedPort;
+                        connect();
+                    }).catch(error => {
+                        document.getElementById("messageDiv").innerHTML = ('Connection error: ' + error);
+                    });
+                }
+            });
+
+            serial.getPorts().then(ports => {
+                if (ports.length == 0) {
+                    document.getElementById("messageDiv").innerHTML = ('No devices found.');
+                } else {
+                    port = ports[0];
+                    connect();
+                }
+            });
+        });
+
+        function send_LED_MOTOR(LEDbrightness, motorValue, duration) {
+            var ledStr = ("00" + (LEDbrightness).toString(16)).slice(-2);
+            var motorStr = ("00" + (motorValue).toString(16)).slice(-2);
+            var durationStr = ("0000" + (duration).toString(16)).slice(-4);
+            var commandStr = "S" + ledStr + motorStr + durationStr + "\n";
+            port.send(textEncoder.encode(commandStr)).catch(error => {
+                document.getElementById("messageDiv").innerHTML = ('Send error: ' + error);
+            });
+        }
+
+        function send_MOTOR_only(motorValue, duration) {
+            var motorStr = ("00" + (motorValue).toString(16)).slice(-2);
+            var durationStr = ("0000" + (duration).toString(16)).slice(-4);
+            var commandStr = "M" + motorStr + durationStr + "\n";
+            port.send(textEncoder.encode(commandStr)).catch(error => {
+                document.getElementById("messageDiv").innerHTML = ('Send error: ' + error);
+            });
+        }
+
+        function send_LED_only(dataArr) {
+            var cmdBuf = ""
+            for (var i = 0; i < 4 * 6; i++) {
+                cmdBuf = cmdBuf + ("00" + (dataArr[i]).toString(16)).slice(-2);
+            }
+            var commandStr = "L" + cmdBuf + "\n";
+            port.send(textEncoder.encode(commandStr)).catch(error => {
+                document.getElementById("messageDiv").innerHTML = ('Send error: ' + error);
+            });
+        }
+
+        document.getElementById("ledMotorButton").addEventListener('click', function () {
+            send_LED_MOTOR(parseInt(led_motor_bri.value), parseInt(led_motor_vib.value), parseInt(led_motor_dur.value));
+        });
+
+        document.getElementById("motorButton").addEventListener('click', function () {
+            send_MOTOR_only(parseInt(motor_only_dur.value), parseInt(motor_only_dur.value));
+        });
+
+        document.getElementById("ledButton").addEventListener('click', function () {
+            var dataArr = [];
+            for (var i = 1; i <= 6; i++) {
+                dataArr.push(parseInt(document.getElementById("led_" + i + "_r").value));
+                dataArr.push(parseInt(document.getElementById("led_" + i + "_g").value));
+                dataArr.push(parseInt(document.getElementById("led_" + i + "_b").value));
+                dataArr.push(parseInt(document.getElementById("led_" + i + "_w").value));
+            }
+            send_LED_only(dataArr);
+        });
+    </script>
+</body>
+
+</html>
