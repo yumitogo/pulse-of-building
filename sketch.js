@@ -45,11 +45,14 @@ var tableContent = {
     text: ['005', 'MTN', 'GOOGLE', '01.20.2018.12:35', '38:00'],
     sound: 'assets/Google_111_8th_Ave _New_York_NY_10011_01.mp3'
   }, {
-    text: ['006', 'BKLYN', 'CHANNEL', '09.11.2017.12:35', '17:44']
+    text: ['006', 'MTN', 'NEW YORK TIMES', '04.17.2018.13:34', '26:51'],
+    sound: 'assets/New_York_Times_242_W_41st_St_New_York_NY_10036_01.mp3'
   }, {
-    text: ['007', 'QNS', 'INSTAGRAM', '09.01.2017.13:00', '18:00']
+    text: ['007', 'MTN', 'R/GA', '02.14.2018.15:20', '10:56'],
+    sound: 'assets/Rga_01.mp3'
   }, {
-    text: ['008', 'BKLYN', 'GOOGLE', '09.05.2017.15:59', '17:44']
+    text: ['008', 'MTN', 'SPOTIFY', '02.14.2018.12:39', '25:06'],
+    sound: 'Spotify_01.mp3'
   }, {
     text: ['009', 'MTN', 'TOPOS', '09.11.2017.12:35', '18:00']
   }, {
