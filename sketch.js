@@ -52,7 +52,7 @@ var tableContent = {
     sound: 'assets/Rga_01.mp3'
   }, {
     text: ['008', 'MTN', 'SPOTIFY', '02.14.2018.12:39', '25:06'],
-    sound: 'Spotify_01.mp3'
+    sound: 'assets/Spotify_01.mp3'
   }, {
     text: ['009', 'MTN', 'TOPOS', '09.11.2017.12:35', '18:00']
   }, {
