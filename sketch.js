@@ -266,10 +266,22 @@ function draw() {
         motorValue = 0;
       }
 
-      var ledStr = ("00" + (LEDbrightness).toString(16)).slice(-2);
+
+      var ledHighValue = [255, 36, 0, 0, 255, 129, 0, 0, 8, 8, 38, 0, 16, 0, 38, 0, 0, 20, 0, 0, 255, 0, 0, 0];
+      var ledLowValue = [10, 1, 0, 0, 11, 12, 0, 0, 3, 3, 8, 0, 3, 0, 8, 0, 0, 6, 0, 0, 25, 0, 0, 0];
+      var cmdBuf = ""
+      for (i = 0; i < 4 * 6; i++) {
+        var interpolatedValue = int(map(LEDbrightness, 54, 185, ledLowValue[i], ledHighValue[i]))
+        if (interpolatedValue > 255) interpolatedValue = 255;
+        if (interpolatedValue < 0) interpolatedValue = 255;
+
+        cmdBuf = cmdBuf + ("00" + (interpolatedValue).toString(16)).slice(-2);
+      }
+      var ledCmd = "L" + cmdBuf + "\n";
+
       var motorStr = ("00" + (motorValue).toString(16)).slice(-2);
-      var durationStr = ("00" + (duration).toString(16)).slice(-4);
-      var commandStr = "S" + ledStr + motorStr + durationStr + "\n";
+      var durationStr = ("0000" + (duration).toString(16)).slice(-4);
+      var commandStr = "M" + motorStr + durationStr + "\n" + ledCmd;
       //console.log(commandStr);
       webUSBPort.send(textEncoder.encode(commandStr)).catch(error => {
         console.log('Send error: ' + error);
