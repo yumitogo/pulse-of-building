@@ -49,7 +49,7 @@ var tableContent = {
     sound: 'assets/New_York_Times_242_W_41st_St_New_York_NY_10036_01.mp3'
   }, {
     text: ['007', 'MTN', 'R/GA', '02.14.2018.15:20', '10:56'],
-    sound: 'assets/Rga_01.mp3'
+    sound: 'assets/Spotify_01.mp3'
   }, {
     text: ['008', 'MTN', 'Spotify', '02.14.2018.15:20', '10:56'],
     sound: 'assets/Spotify_01.mp3'
