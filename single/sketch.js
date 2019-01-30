@@ -44,7 +44,7 @@ var wavePhase = [];
 var fftAverage = [];
 var fftAvgLength = 64;
 var phaseShift = 0;
-var displayInstruction = true;
+var displayInstruction = false;
 
 function preload() {
   fontPrintChar21 = loadFont('assets/PrintChar21.otf');
